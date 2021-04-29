@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+if [ -n "$1" ]; then
+  cukes_exit_code=$1
+fi
+
+fail=0
+if [ -z "$CS_PROJECT_ACCESS_TOKEN" ]; then
+  echo "Error: missing CS_PROJECT_ACCESS_TOKEN from CucumberStudio project to push results"
+  fail=1
+fi
+if [ -z "$REPOSITORY_NAME" ]; then
+  echo "Error: missing REPOSITORY_NAME from CucumberStudio project to push results"
+  fail=1
+fi
+
+[ $fail == 1 ] && exit 1
+
+if [ -z "$COMMIT_SHA" ]; then
+  echo "Warning: missing COMMIT_SHA from CucumberStudio project to push results"
+  export COMMIT_SHA=$(git rev-parse HEAD)
+  echo "COMMIT_SHA set to current HEAD ($COMMIT_SHA)"
+fi
+
+if [ -z "$COMMIT_BRANCH" ]; then
+  echo "Warning: missing COMMIT_BRANCH from CucumberStudio project to push results"
+  export COMMIT_BRANCH=$(git rev-parse --abbrev-ref $COMMIT_SHA)
+  echo "COMMIT_BRANCH set to current HEAD ($COMMIT_BRANCH)"
+fi
+
+# Strip "refs/heads/" when it's a github ref
+COMMIT_BRANCH="${COMMIT_BRANCH#refs\/heads\/}"
+
+set -x
+curl \
+  --location --silent \
+  --request POST \
+  https://studio.cucumber.io/cucumber_project/results \
+  --form messages=@results.ndjson \
+  --header "project-access-token: $CS_PROJECT_ACCESS_TOKEN" \
+  --header "provider: github" \
+  --header "repo: $REPOSITORY_NAME" \
+  --header "branch: $COMMIT_BRANCH" \
+  --header "revision: $COMMIT_SHA"
+{ set +x; } 2>/dev/null
+echo
+
+if [ -n "$cukes_exit_code" ]; then
+  exit $cukes_exit_code
+fi
