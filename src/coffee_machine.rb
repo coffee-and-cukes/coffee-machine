@@ -69,8 +69,8 @@ class CoffeeMachine
 
   def get_settings
     {
-      'water hardness': @water_hardness,
-      'grinder': @grinder
+      'water hardness' => @water_hardness,
+      'grinder' => @grinder
     }
   end
 
