@@ -74,11 +74,11 @@ class CoffeeMachine
     }
   end
 
-  def take_coffee(type=:espresso)
+  def take_coffee(type)
     if (@tank_content == 0 || @beans_content == 0)
       @coffee_served = nil
     else
-      @coffee_served = :espresso
+      @coffee_served = type
       @tank_content -= 1
       @beans_content -= 1
       @grounds_content += 1

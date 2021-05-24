@@ -16,11 +16,11 @@ Then /^message "(.*)" should be displayed$/ do |message|
 end
 
 Then /^coffee should be served$/ do
-  coffee_should_be_served
+  coffee_should_be_served(:espresso)
 end
 
 Then('espresso should be served') do
-  coffee_should_be_served
+  coffee_should_be_served(:espresso)
 end
 
 Then('cappuccino should be served') do
