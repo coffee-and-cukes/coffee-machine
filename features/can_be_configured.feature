@@ -1,7 +1,6 @@
 Feature: Can be configured
-    As this is a high quality product
-    It is possible to configure it
-    In order to get the best possible coffees
+  This is a high quality product and it has some advanced confiugration
+  options to give the user some control of the coffee it produces.
 
   Scenario: Display settings
     Given the coffee machine is started

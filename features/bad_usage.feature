@@ -1,7 +1,6 @@
 Feature: Bad usage
-    As a lazy coffee user
-    I can ignore the message displayed by the machine
-    So I can have coffee and let other people have to clean after me
+  The warning errors do not prevent the coffee machine from running. 
+  It is recommended for customers to follow the warnings though.
 
   Scenario: Full grounds does not block coffee
     You keep getting coffee even if the "Empty grounds" message is displayed.

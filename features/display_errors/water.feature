@@ -1,7 +1,6 @@
 Feature: Water
-    As a coffee lover
-    I have to handle the water tank
-    So I can have coffee when I need it
+  To maintain an uninterrupted supply of coffee it is important to keep
+  the water tank filled with fresh water.
 
   Background:
     Given the coffee machine is started

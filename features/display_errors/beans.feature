@@ -1,7 +1,6 @@
 Feature: Beans
-    As a coffee lover
-    I have to put fresh beans from time to time
-    So I can have coffee when I need it
+  To ensure that your coffee supply is not interrupted you should
+  regularly top-up the hopper with fresh beans.
 
   Background:
     Given the coffee machine is started

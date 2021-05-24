@@ -1,7 +1,6 @@
 Feature: Grounds
-    As a coffee lover
-    I have to empty the grounds
-    So I don't end up with a total mess around the coffee machine
+  To maintain a clean machine it is important to regularly empty the 
+  coffee grounds.
 
   Background:
     Given the coffee machine is started
