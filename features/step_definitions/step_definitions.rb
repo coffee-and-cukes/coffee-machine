@@ -23,8 +23,8 @@ Then('espresso should be served') do
   coffee_should_be_served
 end
 
-Then('cappucino should be served') do
-  pending # Write code here that turns the phrase above into concrete actions
+Then('cappuccino should be served') do
+  coffee_should_be_served(:cappuccino)
 end
 
 
@@ -41,7 +41,7 @@ When('I take an espresso') do
 end
 
 When('I take a cappuccino') do
-  pending # Write code here that turns the phrase above into concrete actions
+  i_take_a_cappuccino
 end
 
 When /^I empty the coffee grounds$/ do

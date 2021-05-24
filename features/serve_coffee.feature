@@ -18,4 +18,4 @@ Feature: Serve coffee
   Scenario: Serve cappuccino
     Given the coffee machine is started
     When I take a cappuccino
-    Then cappucino should be served
+    Then cappuccino should be served

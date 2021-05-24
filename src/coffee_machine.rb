@@ -10,7 +10,7 @@ class CoffeeMachine
     fill_beans()
     empty_grounds()
 
-    @coffee_served = false
+    @coffee_served = nil
 
     @water_hardness = 2
     @grinder = "medium"
@@ -74,11 +74,11 @@ class CoffeeMachine
     }
   end
 
-  def take_coffee
+  def take_coffee(type=:espresso)
     if (@tank_content == 0 || @beans_content == 0)
-      @coffee_served = false
+      @coffee_served = nil
     else
-      @coffee_served = true
+      @coffee_served = :espresso
       @tank_content -= 1
       @beans_content -= 1
       @grounds_content += 1

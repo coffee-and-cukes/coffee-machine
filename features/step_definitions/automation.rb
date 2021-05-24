@@ -25,8 +25,8 @@ module Automation
     assert_equal(message, coffee_machine.message)
   end
 
-  def coffee_should_be_served
-    assert(coffee_machine.coffee_served)
+  def coffee_should_be_served(type=:espresso)
+    assert_equal(type, coffee_machine.coffee_served)
   end
 
   def coffee_should_not_be_served
@@ -35,6 +35,10 @@ module Automation
 
   def i_take_a_coffee
     coffee_machine.take_coffee
+  end
+
+  def i_take_a_cappuccino
+    coffee_machine.take_coffee(:cappuccino)
   end
 
   def i_empty_the_coffee_grounds
