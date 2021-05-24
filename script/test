@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bundle exec cucumber --format message --out results.ndjson; script/publish-results $?

@@ -28,7 +28,7 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Execute specification and publish
       if: env.CS_PROJECT_ACCESS_TOKEN != null
-      run: bundle exec cucumber --format message --out results.ndjson; script/publish-results
+      run: script/test
       env:
         CS_PROJECT_ACCESS_TOKEN: ${{ secrets.CS_PROJECT_ACCESS_TOKEN }}
         REPOSITORY_NAME: ${{ github.repository }}
