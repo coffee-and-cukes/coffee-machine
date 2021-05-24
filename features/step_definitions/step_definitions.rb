@@ -19,12 +19,29 @@ Then /^coffee should be served$/ do
   coffee_should_be_served
 end
 
+Then('espresso should be served') do
+  coffee_should_be_served
+end
+
+Then('cappucino should be served') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
 Then /^coffee should not be served$/ do
   coffee_should_not_be_served
 end
 
 When /^I take a coffee$/ do
   i_take_a_coffee
+end
+
+When('I take an espresso') do
+  i_take_a_coffee
+end
+
+When('I take a cappuccino') do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 When /^I empty the coffee grounds$/ do

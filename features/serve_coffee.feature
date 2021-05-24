@@ -1,5 +1,4 @@
 Feature: Serve coffee
-
   This simple coffee machine will only serve a single espresso
 
   @split[serve_cappuccino:off]
