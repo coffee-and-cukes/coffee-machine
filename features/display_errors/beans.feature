@@ -1,7 +1,6 @@
 Feature: Beans
-    As a coffee lover
-    I have to put fresh beans from time to time
-    So I can have coffee when I need it
+    Coffee requires fresh beans, the more you drink, the more beans you need.
+    The machine can only hold so many, as you run out you need to replenish the stock.
 
   Background:
     Given the coffee machine is started
