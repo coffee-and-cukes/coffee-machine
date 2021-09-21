@@ -1,21 +1,20 @@
 Feature: Serve coffee
-  This simple coffee machine will only serve a single espresso
+  This simple coffee machine will serve a single espresso or a cappuccino
+    
+  Rule: Choose betwee espresso and cappuccino
+    Scenario: Serve espresso
+      Given the coffee machine is ready to serve coffee
+      When I take an espresso
+      Then espresso should be served
 
-  @split[serve_cappuccino:off]
-  Scenario: Simple use
-    # Well, sometimes, you just get a coffee.
-    Given the coffee machine is started
-    When I take a coffee
-    Then coffee should be served
-    
-  @split[serve_cappuccino:on]
-  Scenario: Serve espresso
-    Given the coffee machine is started
-    When I take an espresso
-    Then espresso should be served
-    
-  @split[serve_cappuccino:on]
-  Scenario: Serve cappuccino
-    Given the coffee machine is started
-    When I take a cappuccino
-    Then cappuccino should be served
+    Scenario: Serve cappuccino
+      Given the coffee machine is ready to serve coffee
+      When I take a cappuccino
+      Then cappuccino should be served
+
+  Rule: No warning if milk level is low
+    Scenario: No milk
+      Given the coffee machine is ready to serve coffee
+      But there is no milk
+      When I take a cappuccino
+      Then espresso should be served
